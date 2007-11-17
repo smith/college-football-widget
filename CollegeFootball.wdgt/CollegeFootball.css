@@ -1,0 +1,177 @@
+body {
+	margin: 0;
+}
+
+table {
+    color: white;
+    font: 12px "Lucida Grande";   
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    white-space: nowrap;
+    text-align: right;
+    padding-bottom: 5px;
+    border-bottom: dotted 1px;
+}
+
+.link {
+	font: 16px "Lucida Grande";
+    font-weight: bold;
+	position: absolute;
+	color: white;
+	top: 25px;
+}
+
+.link:hover {
+    border-bottom: 2px solid;
+}
+
+#teamLogo {
+    position: absolute;
+    left: 110px;
+    top: 15px;
+    z-index: 0;
+}
+
+.statsText {
+	left: 30px;
+}
+
+.newsText {
+	right: 30px;
+}
+
+.backgroundImage {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#schedule {
+    position:absolute;
+    top:70px;	
+	bottom:25px;
+	left: 15px;
+	right: 15px;
+}
+
+#loading {
+    position: absolute;
+    top: 280px;
+    left: 70px;
+    font: 16px "Lucida Grande";
+    color: white;
+    display: none;
+}
+
+/************
+    Back side
+*************/
+#about {
+    color: white;
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    right: 20px;
+    bottom: 200px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+#widgetName {
+    top: 20px;
+    position: absolute;
+    white-space: nowrap;
+    font: 24px "Rockwell Extra Bold";
+}
+
+#by { 
+    position: absolute;
+    bottom: 20px;
+    right: 5px;
+    font: 14px "Rockwell"
+}
+
+#by:hover {
+    border-bottom: 1px solid;
+}
+
+.label {
+	position: absolute;
+	font: 12px "Lucida Grande";
+	color:white;
+	left: 70px;
+}
+
+#division-label {
+	top:150px;
+}
+
+#conference-label {
+	top:190px;
+}
+
+#team-label {
+	top:230px;
+}
+
+.popup {
+	position:absolute;
+	left: 70px;
+	width:132px;
+}
+
+#division-popup {
+	top:162px;
+}
+
+#conference-popup {
+	top:202px;
+}
+
+#team-popup {
+	top:242px;
+}
+
+#done {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+#back {
+	display: none;
+} 
+
+
+
+/*
+ ********************************
+ *	Flipper styles	*
+ ********************************
+ */
+
+.flip {
+	position:absolute;
+	bottom: 20px;
+	right: 12px;
+	width:13px;
+	height:13px;
+}
+
+#flip {
+	opacity:0;
+	background: url(file:///System/Library/WidgetResources/ibutton/white_i.png) no-repeat top left;
+	z-index:8000;
+}
+
+#fliprollie {
+	display:none;
+	opacity:0.25;
+	background: url(file:///System/Library/WidgetResources/ibutton/white_rollie.png) no-repeat top left;
+	z-index:7999;
+
+}
+

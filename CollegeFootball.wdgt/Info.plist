@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowFileAccessOutsideOfWidget</key>
+	<false/>
+	<key>AllowFullAccess</key>
+	<false/>
+	<key>AllowInternetPlugins</key>
+	<true/>
+	<key>AllowJava</key>
+	<false/>
+	<key>AllowMultipleInstances</key>
+	<false/>
+	<key>AllowNetworkAccess</key>
+	<true/>
+	<key>AllowSystem</key>
+	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>College Football</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.nlsmith.widget.CollegeFootball</string>
+	<key>CFBundleName</key>
+	<string>College Football</string>
+	<key>CFBundleVersion</key>
+	<string>0.1.0</string>
+	<key>CloseBoxInsetX</key>
+	<integer>12</integer>
+	<key>CloseBoxInsetY</key>
+	<integer>12</integer>
+	<key>MainHTML</key>
+	<string>CollegeFootball.html</string>
+	<key>TargetCFBundleShortVersionString</key>
+	<string>0.1.0</string>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+*[class^=webdeveloper-]
+{
+    border-style: solid !important;
+    border-width: 1px !important;
+    font-family: sans-serif !important;
+	font-size: 10px !important;
+	font-style: normal !important;
+	font-variant: normal !important;
+	font-weight: normal !important;
+	letter-spacing: 0 !important;
+	margin: 0 1px 0 0 !important;
+	padding: 1px !important;
+	text-align: left !important;
+	text-decoration: none !important;
+	text-transform: none !important;
+	z-index: 1 !important;
+}

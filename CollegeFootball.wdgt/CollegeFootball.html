@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+	@import "CollegeFootball.css";
+</style>
+
+<!-- The JavaScript file contains the logic needed for this widget -->
+<script type='text/javascript' src='CollegeFootball.js' charset='utf-8'/>
+
+<!-- The JavaScript file contains the logic we can use to create Dashboard-like Buttons -->
+<script type='text/javascript' src='file:///System/Library/WidgetResources/button/genericButton.js' />
+
+</head>
+
+<body onload='setup();'>			
+
+<div id="front" onmousemove='mousemove(event);' onmouseout='mouseexit(event);'>
+<img span="backgroundImage" src="Default.png" alt="" />
+
+<div id="top">
+<div id="teamLogo">&nbsp;</div>
+<h1 id="teamName"></h1>
+<span class="newsText link" onclick="news();">News</span>
+<span class="statsText link" onclick="stats();">Stats</span>
+</div>
+<div id="schedule"></div>
+   
+<!-- The following elements comprise the info button, present in the bottom right of thw widget upon mouse over -->
+<div class='flip' id='fliprollie'></div>
+<div class='flip' id='flip' onclick='showPrefs(event);' onmouseover='enterflip(event);' onmouseout='exitflip(event);'></div>	
+</div>
+
+<!-- The back div is the preferences UI of the widget.  It is hidden by the
+     style sheet and shown by the showPrefs() function 
+      -->
+    <div id="back">
+        <img span="backgroundImage" src="Back.png" alt="" />
+		<span id="loading">Loading...</span>
+		<div id="about">
+		  <span id="widgetName">College Football</span>
+		  <span id="by" onclick="by();">www.nlsmith.com</span>
+        </div>
+        <div id='conference-label' class='label'>Conference:</div>
+		<select id='conference-popup' class='popup' onchange='conferenceChanged(this);'>
+		</select>
+		<div id='team-label' class='label'>Team:</div>
+		<select id='team-popup' class='popup' onchange='teamChanged(this);'>
+		</select>
+        <script type="text/javascript">
+        updateDefaults();
+    if (window.widget)
+    {
+        var pref = widget.preferenceForKey(createkey("team"));
+        if (pref != null)
+        {
+            defaultTeamIndex = parseInt(pref);
+        }
+        else
+        {
+            defaultTeamIndex = 2;
+        }
+        pref = widget.preferenceForKey(createkey("conference"));
+        if (pref != null)
+        {
+            defaultConferenceIndex = parseInt(pref);
+        }
+        else
+        {
+            defaultConferenceIndex = 3;
+        }
+    }
+		populateConferenceSelect();
+	 	document.getElementById ('conference-popup').options[defaultConferenceIndex].selected = true;
+		popuplateTeamSelect(conferences[defaultConferenceIndex].array);
+	 	document.getElementById ('team-popup').options[defaultTeamIndex].selected = true;
+        </script>
+
+        <div id="done"></div>
+    </div>
+
+</body>
+
+</html>

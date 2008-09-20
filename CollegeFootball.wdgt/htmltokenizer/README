@@ -1,0 +1,63 @@
+htmltokenizer README
+============
+
+  htmltokenizer is a port of the idea behind Perl's HTML::TokeParser::Simple.
+  The basic concept is that it treats a web page as a series of tokens, which 
+  are either text, html tags, or html comments.  This class provides a way 
+  of getting these tokens in sequence, either one at a time regardless of 
+  type, or by choosing a list of interesting tags.
+
+Requirements
+------------
+
+  * ruby
+
+Install
+-------
+
+  De-Compress archive and enter its top directory.
+  Then type:
+
+    $ ruby install.rb config
+    $ ruby install.rb setup
+    $ su -c "ruby install.rb install"
+
+  or
+
+    $ ruby install.rb config
+    $ ruby install.rb setup
+    $ sudo ruby install.rb install
+
+  You can also install files into your favorite directory
+  by supplying install.rb some options. Try "ruby install.rb --help".
+
+Usage
+-----
+
+require 'html/htmltokenizer'
+
+page = getSomePageFromTheInternetAsAString()
+
+tokenizer = HTMLTokenizer.new(page)
+
+while token = tokenizer.getTag('a', 'font', '/tr', 'div')
+  if 'div' == token.tag_name
+    if 'headlinesheader' == token.attr_hash['class']
+      puts "Header is: " + tokenizer.getTrimmedText('/div')
+    else
+      tokenizer.getTag('/div')
+      token = tokenizer.getTag('a')
+      if token.attr_hash['href']
+        puts "Found a link after a div going to #{token.attr_hash['href']}"
+      end
+    end
+  end
+end
+
+License
+-------
+
+  Ruby's license, see http://www.ruby-lang.org/en/LICENSE.txt
+
+
+Ben Giddings <bg-rubyraa@infofiend.com>

@@ -2,7 +2,7 @@
 # Zip up widget for distribution. Requires zip and svn
 
 PROJ=CollegeFootball.wdgt
-REPO=http://svn.nlsmith.com/CollegeFootball/trunk/$PROJ
+REPO=`svn info | grep ^URL - | sed -e s/URL:\ //g -`/$PROJ # Get the repo URL
 TEMP=tmp
 ZIPFILE=$PROJ.zip
 

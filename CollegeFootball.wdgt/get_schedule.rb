@@ -90,7 +90,7 @@ if(tz =~ /[C|M|P][D|S]T/) # central, mountain, or pacific
         tzOffset = 3
     end
 
-    re = /(\d+):(\d+) ([A|P]M)&nbsp;ET/     # match a time hh:mm A|PM ET
+    re = /(\d+):(\d+) ([A|P]M)&nbsp;ET(.*?)</     # match a time hh:mm A|PM ET
     
     table.gsub!(re) do |m|
         md = re.match(m)
@@ -106,7 +106,7 @@ if(tz =~ /[C|M|P][D|S]T/) # central, mountain, or pacific
         ampm = (hour < 12 ? 'AM' : 'PM')
         hour -= 12 if hour > 12
         
-        hour.to_s + ':' + md[2] + ' ' + ampm
+        hour.to_s + ':' + md[2] + ' ' + ampm + '<'
     end
 end
 

@@ -1,11 +1,11 @@
 body {
 	margin: 0px;
-  font-family: "Lucida Grande";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 table {
     color: white;
-    font: 12px "Lucida Grande";   
+    font-size: 12px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -18,27 +18,27 @@ td {
 }
 
 .link {
-	font: 16px "Lucida Grande";
-    font-weight: bold;
+	font-size: 16px;
+  font-weight: bold;
 	position: absolute;
 	color: white;
 	top: 25px;
 }
 
 .link:hover {
-    border-bottom: 1px dotted;
+  border-bottom: 1px dotted;
 }
 
 h1#teamName {
-    color: white;
-    position: absolute;
-    margin: 0px;
-    padding: 0px;
-    top: 35px;
-    left: 80px;
-    display: inline;
-    font-size: 16px;
-    font-weight: bold;
+  color: white;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  top: 35px;
+  left: 80px;
+  display: inline;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 
@@ -83,7 +83,7 @@ h1#teamName {
     position: absolute;
     top: 280px;
     left: 70px;
-    font: 16px "Lucida Grande";
+    font-size: 16px;
     color: white;
     display: none;
 }
@@ -106,14 +106,17 @@ h1#teamName {
     top: 20px;
     position: absolute;
     white-space: nowrap;
-    font: 24px "Rockwell Extra Bold";
+    font-size: 24px;
+    font-family: "Rockwell Extra Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
 
 #by { 
     position: absolute;
     bottom: 20px;
     right: 5px;
-    font: 14px "Rockwell"
+    font-family: "Rockwell", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 #by:hover {
@@ -122,7 +125,7 @@ h1#teamName {
 
 .label {
 	position: absolute;
-	font: 12px "Lucida Grande";
+	font-size: 12px;
 	color:white;
 	left: 70px;
 }

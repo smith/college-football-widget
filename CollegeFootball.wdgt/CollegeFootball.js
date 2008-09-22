@@ -405,7 +405,7 @@ function news()
 
 function stats()
 {
-    widget.openURL('http://sports.espn.go.com/ncf/teamstats?teamId=' + teamID);
+    widget.openURL('http://sports.espn.go.com/ncf/teams/stats?teamId=' + teamID);
 }
   
 function by()

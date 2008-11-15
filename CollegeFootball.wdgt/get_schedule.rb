@@ -33,7 +33,13 @@ while(token = tokenizer.getTag('tr'))
     table << token.to_s
     3.times do
         token = tokenizer.getTag('td')
-        table << token.to_s << tokenizer.getText
+
+        # Handle glossary table
+        break if token.nil?
+        text = tokenizer.getText
+        break if text =~ /^\*/ || text == "Glossary"
+
+        table << token.to_s << text
         token = tokenizer.getTag('/td')
         table << token.to_s
     end

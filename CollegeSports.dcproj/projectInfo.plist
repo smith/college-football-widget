@@ -95,5 +95,7 @@
 	</dict>
 	<key>CYProjectFormatVersion</key>
 	<integer>40</integer>
+	<key>IsInCodeGeneratorMode</key>
+	<false/>
 </dict>
 </plist>

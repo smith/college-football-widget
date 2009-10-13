@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Football Widget</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="resources/screen.css" rel="stylesheet" media="screen" />
+  <script src="js/date.js"></script>
+  <script src="js/query.js"></script>
+  <script src="js/base.js"></script>
+  <script src="js/main.js"></script>
+  <script src="file:///System/Library/WidgetResources/button/genericButton.js"></script>
+</head>
+
+<body>
+  <div id="front">
+    <img id="frontImg" src="Default.png" alt="" />
+    <div id="top">
+      <div id="teamLogo">&nbsp;</div>
+      <h1 id="teamName"></h1>
+      <a id="news" href="http://espn.go.com/college-football/">News</a>
+      <a id="stats" href="http://espn.go.com/college-football/statistics">Stats</a>
+    </div>
+    <div id="schedule"></div>
+
+<!-- The following elements comprise the info button, present in the bottom right of thw widget upon mouse over -->
+<div class='flip' id='fliprollie'></div>
+<div class='flip' id='flip' onclick='showPrefs(event);' onmouseover='enterflip(event);' onmouseout='exitflip(event);'></div>	
+</div>
+
+<!-- The back div is the preferences UI of the widget.  It is hidden by the
+     style sheet and shown by the showPrefs() function -->
+  <div id="back">
+    <img id="backImg" src="Back.png" alt="" />
+    <span id="loading">Loading...</span>
+    <div id="about">
+      <span id="widgetName">College Football</span>
+      <span id="by" onclick="by();">www.nlsmith.com</span>
+    </div>
+    <form method="get" action="">
+      <label for="conference">Conference:</label>
+      <select id="conference" name="conference"></select>
+      <label for="team">Team</label>
+      <select id="team" name="team"></select>
+    </form>
+<script type="text/javascript">
+updateDefaults();
+if (window.widget)
+{
+var pref = widget.preferenceForKey(createkey("team"));
+if (pref != null)
+{
+    defaultTeamIndex = parseInt(pref);
+}
+else
+{
+    defaultTeamIndex = 2;
+}
+pref = widget.preferenceForKey(createkey("conference"));
+if (pref != null)
+{
+    defaultConferenceIndex = parseInt(pref);
+}
+else
+{
+    defaultConferenceIndex = 3;
+}
+}
+populateConferenceSelect();
+document.getElementById ('conference-popup').options[defaultConferenceIndex].selected = true;
+popuplateTeamSelect(conferences[defaultConferenceIndex].array);
+document.getElementById ('team-popup').options[defaultTeamIndex].selected = true;
+</script>
+    <div id="done"></div>
+  </div>
+</body>
+</html>

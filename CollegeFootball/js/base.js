@@ -1,5 +1,12 @@
+/**
+ * Language extensions and globals
+ */
 
-if (typeof Object.create !== 'function') {
+/*global $, CollegeSportsWidget */
+
+var CollegeSportsWidget = {};
+
+if (typeof Object.create !== "function") {
     Object.create = function (o) {
         var F = function () {};
         F.prototype = o;
@@ -7,4 +14,18 @@ if (typeof Object.create !== 'function') {
     };
 }
 
-CollegeSportsWidget = {};
+if (typeof Object.keys !== "function") {
+    Object.keys = function (o) {
+        var results = [];
+        for (var property in o) { if(o.hasOwnProperty(property)) {
+            results.push(property);
+        }}
+        return results;
+    };
+}
+
+if (typeof Array.prototype.forEach !== "function") {
+    Array.prototype.forEach = function (block) {
+        $.each(block);
+    };
+}

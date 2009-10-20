@@ -1,13 +1,12 @@
 body { 
     margin: 0px; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
     color: white;
     background: transparent;
-    padding: 5px;
 }
 
 table {
-    font-size: 12px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -22,9 +21,7 @@ td {
 }
 
 a {
-    font-size: 16px;
-    font-weight: bold;
-	color: white;
+    color: white;
     text-decoration: none;
     margin-bottom: 1px;
 }
@@ -35,52 +32,65 @@ a:hover {
 }
 
 h1 {
-  font-size: 16px;
-  font-weight: bold;
-  display: inline;
-  height: 50px;
-  vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline;
+    vertical-align: middle;
+    margin: 0px 0px 0px 12px;
 }
 
 .side {
     background: black;
+    margin: 12px;
+    padding: 12px 0px 12px 0px;
+    min-height: 412px;
+
     border: 1px solid black;
     border-radius : 12px;
     -moz-border-radius : 12px;
     -webkit-border-radius : 12px;
 
+    box-shadow: black 1px 6px 9px;
+    -moz-box-shadow: black 1px 6px 9px;
+    -webkit-box-shadow: black 1px 6px 9px;
 }
 
-#top {
-    padding : 10px;
-}
+.side .top { margin: 0px 12px 12px 12px; }
 
-#top img { width: 50px; height: 50px; }
+#front { position: relative; }
 
-#top #links {
+#front .top img { width: 50px; height: 50px; vertical-align: middle; }
+
+.top #links {
     float: right;
 }
 
-#top #links a {
-    display : block;
-}
-
 #flip {
-    text-align: right;
-    display: block;
-}
-
-#teamLogo {
     position: absolute;
-    left: 20px;
-    top: 15px;
-    z-index: 0;
-    width: 50px;
-    height: 50px;
-    background-color: #000000;
+    bottom: 3px;
+    right: 5px;
+    text-align: center;
+    display: block;
+    width: 18px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Times, "Times New Roman", serif;
+    margin: auto;
 }
 
+#flip:hover { 
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 8px;
+    background-color: white;
+    opacity: 0.4%;
+    color: black;
+    cursor: pointer;
+}
 #schedule {
+    overflow: auto;
+    margin: 0px 0px 18px 8px;
 }
 
 #about {
@@ -92,12 +102,29 @@ h1 {
     display: none;
 }
 
+#back .top {
+    padding: 24px 12px 24px 12px;
+}
 #back h1 {
     white-space: nowrap;
     font-size: 24px;
     font-family: "Rockwell Extra Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 2em;
+    margin-bottom: 4em;
+    display: block;
 }
 
+#back a {
+    text-align: right;
+    display: block;
+}
+
+form { margin: 12px 0px 0px 24px; }
+form .item { width: 100%; clear: both; margin-bottom: 12px; }
+form label { width: 80px; float: left; display: block; margin-bottom: 12px; }
+form select { float: left; display: block; margin-bottom: 12px; }
 #done {
+    float: right;
+    margin-right: 64px;
 }
 

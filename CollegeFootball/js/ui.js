@@ -18,6 +18,7 @@ ui.load = function () {
         news : $("#news"),
         stats : $("#stats")
     };
+    ui.front = $("#front");
     ui.title = $("#name");
     ui.logo = $("#logo");
     ui.schedule = $("#schedule");
@@ -26,7 +27,10 @@ ui.load = function () {
     ui.selects.conference.bind("change", w.setTeam);
     ui.selects.team.bind("change", w.setTeam);
     ui.buttons.flip.bind("click", ui.flip);
-    ui.buttons.done.bind("click", ui.flip);
+    ui.buttons.done.bind("click", function (evt) { 
+        evt.preventDefault();
+        ui.flip()
+    });
 };
 
 ui.populateSelect = function (info, select) {
@@ -64,6 +68,7 @@ ui.update = function (team) {
     ui.updateLogo();
     ui.updateTitle();
     ui.updateTable();
+    ui.updateBackground();
     ui.updateLinks();
     ui.loading("off");
 };
@@ -82,6 +87,9 @@ ui.updateLinks = function () {
     });
 };
 
+ui.updateBackground = function() {
+    ui.front.css("background-color", "#" + w.currentTeam.color);
+}
 
 ui.updateTable = function () {
     ui.schedule.html(w.currentTeam.html);

@@ -14,7 +14,7 @@
 
 <body id="standalone">
   <div id="front" class="side">
-    <div id="top">
+    <div class="top">
       <img id="logo" src="" alt="" />
       <h1 id="name"></h1>
       <div id="links">
@@ -26,17 +26,23 @@
     <span id="flip">i</span>
   </div>
   <div id="back" class="side">
-    <div id="about">
+    <div class="top" id="about">
       <h1>College Sports</h1>
       <a href="http://nlsmith.com/projects/">nlsmith.com</a>
     </div>
     <form method="get" action="">
-      <label for="conference">Conference</label>
-      <select id="conference" name="conference"></select>
-      <label for="team">Team</label>
-      <select id="team" name="team"></select>
+      <div class="item">
+        <label for="conference">Conference</label>
+        <select id="conference" name="conference"></select>
+      </div>
+      <div class="item">
+        <label for="team">Team</label>
+        <select id="team" name="team"></select>
+      </div>
+      <div class="item submit">
+        <button id="done">Done</button>
+      </div>
     </form>
-    <button id="done">Done</button>
   </div>
 </body>
 </html>

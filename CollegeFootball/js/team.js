@@ -1,6 +1,6 @@
 (function (w) {
 w.team = function (name, info, w) {
-    w = w || {};
+    w = w || { urls : {} };
     var t = Object.create(info) || {},
         logoFormat = "gif";
 

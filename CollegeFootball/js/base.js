@@ -24,6 +24,12 @@ if (typeof Object.keys !== "function") {
     };
 }
 
+if (typeof Array.isArray !== "function") {
+    Array.isArray = function(obj) {
+        return Object.prototype.toString.call(obj) == "[object Array]";
+    };
+}
+
 if (typeof Array.prototype.forEach !== "function") {
     Array.prototype.forEach = function (block) {
         $.each(block);

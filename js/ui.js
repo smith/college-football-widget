@@ -11,7 +11,7 @@ ui.load = function () {
         done : $("#done")
     };
     ui.selects = {
-        conference : $("#conference"), 
+        conference : $("#conference"),
         team : $("#team")
     };
     ui.links = {
@@ -27,7 +27,7 @@ ui.load = function () {
     ui.selects.conference.bind("change", w.setTeam);
     ui.selects.team.bind("change", w.setTeam);
     ui.buttons.flip.bind("click", ui.flip);
-    ui.buttons.done.bind("click", function (evt) { 
+    ui.buttons.done.bind("click", function (evt) {
         evt.preventDefault();
         ui.flip()
     });
@@ -51,7 +51,7 @@ ui.populateSelect = function (info, select) {
 };
 
 ui.populateConferenceSelect = function (evt, info) {
-    info = info || {};    
+    info = info || {};
     w.info = info;
     ui.populateSelect(info, ui.selects.conference);
     w.selectedConference = ui.selects.conference.val();
@@ -109,7 +109,7 @@ ui.flip = function () {
         showing = front.css("display") === "block" ? "#front" : "#back",
         other = showing === "#front" ? "#back" : "#front",
         s = "fast";
-    
+
     $(showing).slideToggle(s, function () { $(other).slideToggle(s); });
 };
 

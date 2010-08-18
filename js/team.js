@@ -4,10 +4,9 @@ require.def("team", function () {
 
 var team = {};
 
-/*
-t.create = function (name, info, w) {
+team.create = function (name, info, w) {
     w = w || { urls : {} };
-    var t = Object.create(info) || {},
+    var t = Object.create(info || {}),
         logoFormat = "gif";
 
     function process(html) {
@@ -109,7 +108,6 @@ t.create = function (name, info, w) {
 
     return t;
 };
-*/
 
 return team;
 

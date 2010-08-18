@@ -4,6 +4,7 @@ require.def("main", ["team", "ui", "json", "global-es5", "date"], function (team
 
 var w = {};
 
+w.ui = ui;
 w.isDashboardWidget = typeof widget === "object";
 w.allowXDomain = w.isDashboardWidget;
 w.teams = {};
@@ -33,7 +34,7 @@ w.load = function () {
     $(w).bind("afterTeamListLoaded", w.setTeam);
     $(w).bind("afterScheduleLoaded", ui.update);
 
-    ui.load();
+    ui.load(w);
     w.getTeamList();
 };
 
@@ -49,7 +50,8 @@ w.setTeam = function () {
     w.selectedConference = ui.selects.conference.val();
     w.selectedTeam = ui.selects.team.val();
 
-    t = w.team(w.selectedTeam, w.info[w.selectedConference][w.selectedTeam], w);
+    t = team.create(
+        w.selectedTeam, w.info[w.selectedConference][w.selectedTeam], w);
     w.teams[t.name] = w.teams[t.name] || t;
     w.currentTeam = t;
     t.getSchedule();

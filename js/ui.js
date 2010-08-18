@@ -1,10 +1,12 @@
 /*global window, widget, require, $ */
 
-require.def("ui", ["main"], function (w) {
+require.def("ui", function () {
 
-var ui = {};
+var ui = {}, w = {};
 
-ui.load = function () {
+ui.load = function (app) {
+    w = app;
+
     ui.buttons = {
         flip : $("#flip"),
         done : $("#done")
@@ -23,9 +25,8 @@ ui.load = function () {
     ui.schedule = $("#schedule");
 
     ui.selects.conference.bind("change", ui.populateTeamSelect);
-    // FIXME
-    //ui.selects.conference.bind("change", w.setTeam);
-    //ui.selects.team.bind("change", w.setTeam);
+    ui.selects.conference.bind("change", w.setTeam);
+    ui.selects.team.bind("change", w.setTeam);
     ui.buttons.flip.bind("click", ui.flip);
     ui.buttons.done.bind("click", function (evt) {
         evt.preventDefault();
@@ -52,22 +53,19 @@ ui.populateSelect = function (info, select) {
 
 ui.populateConferenceSelect = function (evt, info) {
     info = info || {};
-    // FIXME
-    //w.info = info;
+    w.info = info;
     ui.populateSelect(info, ui.selects.conference);
-    //w.selectedConference = ui.selects.conference.val();
+    w.selectedConference = ui.selects.conference.val();
     ui.populateTeamSelect();
 };
 
 ui.populateTeamSelect = function (evt) {
     var conf = evt ? $(evt.currentTarget).val() : ui.selects.conference.val();
-    // FIXME
-    //ui.populateSelect(w.info[conf], ui.selects.team);
+    ui.populateSelect(w.info[conf], ui.selects.team);
 };
 
 ui.update = function (team) {
-    // FIXME
-    //w.currentTeam.getHTML();
+    w.currentTeam.getHTML();
     ui.updateLogo();
     ui.updateTitle();
     ui.updateTable();

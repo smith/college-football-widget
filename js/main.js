@@ -1,5 +1,8 @@
-/*global window, document, widget, $, CollegeSportsWidget */
-(function (w) {
+/*global window, document, require, widget, $ */
+
+require.def("main", ["team", "ui", "json", "global-es5", "date"], function (team, ui) {
+
+var w = {};
 
 w.isDashboardWidget = typeof widget === "object";
 w.allowXDomain = w.isDashboardWidget;
@@ -23,15 +26,14 @@ w.urls = {
                                  encodeURIComponent("/teams/schedule?teamId="))
 };
 
-
 w.load = function () {
     var t;
 
-    $(w).bind("afterTeamListLoaded", w.ui.populateConferenceSelect);
+    $(w).bind("afterTeamListLoaded", ui.populateConferenceSelect);
     $(w).bind("afterTeamListLoaded", w.setTeam);
-    $(w).bind("afterScheduleLoaded", w.ui.update);
+    $(w).bind("afterScheduleLoaded", ui.update);
 
-    w.ui.load();
+    ui.load();
     w.getTeamList();
 };
 
@@ -44,8 +46,8 @@ w.getTeamList = function () {
 
 w.setTeam = function () {
     var t;
-    w.selectedConference = w.ui.selects.conference.val();
-    w.selectedTeam = w.ui.selects.team.val();
+    w.selectedConference = ui.selects.conference.val();
+    w.selectedTeam = ui.selects.team.val();
 
     t = w.team(w.selectedTeam, w.info[w.selectedConference][w.selectedTeam], w);
     w.teams[t.name] = w.teams[t.name] || t;
@@ -54,6 +56,7 @@ w.setTeam = function () {
 };
 
 $(document).ready(w.load);
-$("a").click(w.ui.openURL);
+$("a").click(ui.openURL);
 
-})(CollegeSportsWidget || {});
+console.log(w);
+});

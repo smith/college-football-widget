@@ -1,7 +1,11 @@
 /*global $, CollegeSportsWidget */
 
-(function (w) {
-w.team = function (name, info, w) {
+require.def("team", function () {
+
+var team = {};
+
+/*
+t.create = function (name, info, w) {
     w = w || { urls : {} };
     var t = Object.create(info) || {},
         logoFormat = "gif";
@@ -105,4 +109,8 @@ w.team = function (name, info, w) {
 
     return t;
 };
-})(CollegeSportsWidget || {});
+*/
+
+return team;
+
+});

@@ -1,9 +1,8 @@
-/*global window, widget, $, CollegeSportsWidget */
-(function (w) {
+/*global window, widget, require, $ */
 
-w.ui = {};
-var ui = w.ui;
+require.def("ui", ["main"], function (w) {
 
+var ui = {};
 
 ui.load = function () {
     ui.buttons = {
@@ -24,8 +23,9 @@ ui.load = function () {
     ui.schedule = $("#schedule");
 
     ui.selects.conference.bind("change", ui.populateTeamSelect);
-    ui.selects.conference.bind("change", w.setTeam);
-    ui.selects.team.bind("change", w.setTeam);
+    // FIXME
+    //ui.selects.conference.bind("change", w.setTeam);
+    //ui.selects.team.bind("change", w.setTeam);
     ui.buttons.flip.bind("click", ui.flip);
     ui.buttons.done.bind("click", function (evt) {
         evt.preventDefault();
@@ -52,19 +52,22 @@ ui.populateSelect = function (info, select) {
 
 ui.populateConferenceSelect = function (evt, info) {
     info = info || {};
-    w.info = info;
+    // FIXME
+    //w.info = info;
     ui.populateSelect(info, ui.selects.conference);
-    w.selectedConference = ui.selects.conference.val();
+    //w.selectedConference = ui.selects.conference.val();
     ui.populateTeamSelect();
 };
 
 ui.populateTeamSelect = function (evt) {
     var conf = evt ? $(evt.currentTarget).val() : ui.selects.conference.val();
-    ui.populateSelect(w.info[conf], ui.selects.team);
+    // FIXME
+    //ui.populateSelect(w.info[conf], ui.selects.team);
 };
 
 ui.update = function (team) {
-    w.currentTeam.getHTML();
+    // FIXME
+    //w.currentTeam.getHTML();
     ui.updateLogo();
     ui.updateTitle();
     ui.updateTable();
@@ -117,4 +120,7 @@ ui.loading = function (newState) {
 
 };
 
-})(CollegeSportsWidget || {});
+return ui;
+
+});
+

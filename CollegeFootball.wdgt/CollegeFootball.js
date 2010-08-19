@@ -372,19 +372,14 @@ function setup()
     set_color();
 }
 
-function get_schedule()
-{
-    var commandLine = '/usr/bin/ruby get_schedule.rb ' + teamID;
-    var output = widget.system(commandLine, null);
-    document.getElementById("schedule").innerHTML = output.outputString;
+function get_schedule() {
+    schedule(teamID, "#schedule", {});
 }
 
 function get_logo()
 {
-    //var logo = '<img src="http://www.nlsmith.com/collegefootball/logos/' 
-      //+ teamID + '.png" alt="" />';
-    var logo = "http://www.nlsmith.com/collegefootball/logos/" + teamID + ".png";
-    //document.getElementById("teamLogo").innerHTML = logo;
+    var logo = "http://a2.espncdn.com/prod/assets/clubhouses/2010/ncaa/logos/" + teamID + ".png";
+    $("#teamLogo").attr({ backgroundImage: logo });
     document.getElementById("teamLogo").style.backgroundImage = "url(" + logo + ")";
 }
 

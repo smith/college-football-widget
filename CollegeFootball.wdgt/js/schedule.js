@@ -26,9 +26,21 @@ var schedule = function (id, selector) {
             td = $(td);
             var tvImg, resultTime;
 
+            function formatDate(date) {
+                return date.toString("M/d");
+            }
+
+            function formatTime(time) {
+                time = Date.parse(time + " EST");
+                if (!time) { time = "TBD"; }
+                else { time = time.toString("h:mm tt"); }
+                return time;
+            }
+
             switch (index) {
             case 0: // date
-                game.day = td.html(); // TODO: format date
+                game.date = Date.parse(td.html());
+                game.day = formatDate(game.date);
                 break;
             case 1: // opponent
                 game.opponent = td.text().replace(/No\.\s/g, "#").replace(/^vs/, "").replace(/^\@/, "at ");
@@ -38,7 +50,7 @@ var schedule = function (id, selector) {
                 resultTime = td.text().replace(/\sET.*$/g, ""); // remove tz
                 game.resultTime = resultTime;
                 if (resultTime.indexOf("-") === -1) { // no dash means time
-                    game.time = resultTime;
+                    game.time = game.resultTime = formatTime(resultTime);
                 } else {
                     game.result = resultTime;
                 }

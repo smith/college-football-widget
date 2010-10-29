@@ -1,7 +1,23 @@
 var schedule = function (id, selector) {
     var baseURL = "http://espn.go.com/college-football/team/schedule/_/id/",
         url = baseURL + id,
-        element = $(selector);
+        element = $(selector),
+        dateInfo;
+
+    function setTimeOffset(date) {
+        var d = dateInfo;
+
+        // memoize the date info
+        if (!d) {
+            d = {};
+            d.now = new Date();
+            d.isDST = d.now.isDaylightSavingTime();
+            d.tz = d.isDST ? "EDT" : "EST";
+            d.offset = Date.getTimezoneOffset(d.tz);
+        }
+
+        return date.setTimezoneOffset(d.offset);
+    }
 
     function update(data) {
         element.html(data);
@@ -31,9 +47,11 @@ var schedule = function (id, selector) {
             }
 
             function formatTime(time) {
-                time = Date.parse(time + " EST");
-                if (!time) { time = "TBD"; }
-                else { time = time.toString("h:mm tt"); }
+                if (!time || time.trim() === "TBD") { time = "TBD"; }
+                else {
+                console.log(time);
+                    time = setTimeOffset(Date.parse(time)).toString("h:mm tt");
+                }
                 return time;
             }
 

@@ -1,0 +1,64 @@
+body {
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+}
+a { color: white; text-decoration: none; }
+a:hover { border-bottom: 1px dotted; }
+
+/* Front */
+img { width: 75px; height: 60px; }
+ul { float: right; list-style: none; margin: 0 }
+table { width: 100%; margin-top: 18px; font-size: 14px; }
+tr:last-child td { border-bottom: none; }
+td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap; }
+
+#front { height: 100%; padding: 10px; overflow: auto;}
+
+#front h1 {
+  font-size: 175%;
+  position: relative;
+  left: 24px;
+  top: 24px;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+.flipper {
+  position: absolute;
+  bottom: 5px;
+  right: 3px;
+  text-align: center;
+  display: inline;
+  width: 18px;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: Times, "Times New Roman", serif;
+  margin: auto;
+}
+
+.flipper:hover {
+  border-radius: 18px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 8px;
+  background-color: white;
+  opacity: 0.2;
+  color: black;
+  cursor: pointer;
+}
+
+/* Back */
+#back { display: none; background: url(images/backgroundTile.png); height: 100%; padding: 12px; }
+#back h1 {
+  font-family: Rockwell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+#back a { float: right;  }
+label { display: block; margin-top: 16px; }
+select { width: 200px; }

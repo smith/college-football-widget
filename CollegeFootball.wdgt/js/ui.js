@@ -1,4 +1,5 @@
-define(["require", "exports", "jquery", "team"], function (require, exports, $, team) {
+define(  ["require", "exports", "jquery", "./team", "./ui/flip", "./pref", "./ui/spinner"],
+function (require, exports, $, team, flip, pref, spinner) {
     var prefixes = {
             logo: "http://a2.espncdn.com/prod/assets/clubhouses/2010/ncaa/logos/",
             stats: "http://espn.go.com/college-football/team/stats/_/id/",
@@ -38,10 +39,9 @@ define(["require", "exports", "jquery", "team"], function (require, exports, $, 
         loadTeams($(this).val());
     }
 
-    function flip(event) {
-        front.toggle();
-        back.toggle();
-        return false;
+    function doFlip(event) {
+        spinner.toggle(front);
+        return flip.perform(front, back, event);
     }
 
     function doneClick(event) {
@@ -49,10 +49,17 @@ define(["require", "exports", "jquery", "team"], function (require, exports, $, 
             exports.setTeam(team.create(
                 d[conferencesSelect.val()][teamsSelect.val()]
             ));
-            flip();
+            doFlip();
         });
         return false;
 
+    }
+
+    // Save a preference
+    function save(event) {
+        pref.set("conference", conferencesSelect.val());
+        pref.set("team", teamsSelect.val());
+        return false;
     }
 
     exports.setTeam = function (team) {
@@ -64,22 +71,27 @@ define(["require", "exports", "jquery", "team"], function (require, exports, $, 
         $("#news").attr("href", prefixes.news + team.id);
 
         t.hide();
-        team.getSchedule().then(function (html) { t.html(html).show(); });
+        team.getSchedule().then(function (html) {
+            spinner.toggle(front);
+            t.html(html).show();
+        });
     };
 
     exports.load = function () {
         // Default team and conference
-        var t = {
-            id: 2294,
-            name: "Iowa"
-        },
-        c = "Big Ten";
+        var t = pref.get("team") || 2294,
+            c = pref.get("conference") || "Big Ten";
 
-        exports.setTeam(team.create(t));
-        $.when(data, loadConferences(c)).then(function () { loadTeams(c); });
+        spinner.toggle(front);
+
+        $.when(data, loadConferences(c), loadTeams(c)).then(function (d) {
+            conferencesSelect.val(c);
+            teamsSelect.val(t);
+            exports.setTeam(team.create(d[0][c][t]));
+        });
         conferencesSelect.live("change", conferenceChange);
-        $("button").live("click", doneClick);
-        $(".flipper").live("click", flip);
+        $("button").live("click", doneClick).live("click", save);
+        $(".flipper").live("click", doFlip);
         back.hide();
     };
 });

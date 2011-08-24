@@ -2,7 +2,7 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
     var cellMethods;
 
     function convertTZ(time) {
-        console.log(time);
+        // TODO
         return time;
     }
 
@@ -36,7 +36,12 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
         },
         resultTime: function (cell, o) {
             var rt = o.resultTime = cell.find("p").text();
-            if (/ET\s?$/.test(rt)) { rt = convertTZ(rt); }
+            // If there's " ET " (eastern time)
+            if (/\sET\s?/.test(rt)) {
+                // Remove everything after the "ET "
+                rt = rt.replace(/\sET\s?(.*)$/, "");
+                rt = convertTZ(rt);
+            }
             o.resultTime = rt;
         },
         recordTickets: function (cell, o) {}

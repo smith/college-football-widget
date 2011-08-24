@@ -1,3 +1,3 @@
-require(["ui"], function (ui, team) {
+require(["./ui", "./widget"], function (ui) {
     ui.load();
 });

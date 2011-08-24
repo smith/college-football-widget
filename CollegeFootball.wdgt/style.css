@@ -1,21 +1,35 @@
+html, body { height: 100%; overflow: hidden; }
+
 body {
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   margin: 0;
-  overflow: hidden;
 }
+
 a { color: white; text-decoration: none; }
 a:hover { border-bottom: 1px dotted; }
 
+.dashboard #front, .dashboard #back {
+     border-radius: 10px;
+}
+
 /* Front */
+.dashboard #front {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
+}
 img { width: 75px; height: 60px; }
-ul { float: right; list-style: none; margin: 0 }
-table { width: 100%; margin-top: 18px; font-size: 14px; }
+ul { display: inline; auto; float: right; list-style: none; margin: 0; text-align: right; }
+ul li { display: inline; }
+ul li a { text-align: center; font-size: 12px; margin: 12px; border-bottom: 1px solid transparent; }
+header { white-space: nowrap; }
+table { width: 100%; margin-top: 18px 0; font-size: 12px; }
 tr:last-child td { border-bottom: none; }
 td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap; }
 
 #front { height: 100%; padding: 10px; overflow: auto;}
+.dashboard #front { min-height: 360px; height: auto; }
 
 #front h1 {
   font-size: 175%;
@@ -27,11 +41,12 @@ td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap;
   padding: 0;
   font-weight: normal;
   vertical-align: top;
+  white-space: nowrap;
 }
 
 .flipper {
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
   right: 3px;
   text-align: center;
   display: inline;
@@ -54,7 +69,13 @@ td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap;
 }
 
 /* Back */
-#back { display: none; background: url(images/backgroundTile.png); height: 100%; padding: 12px; }
+/* #back { display: none; background: url(images/backgroundTile.png); height: 100%; padding: 12px; font-size: 12px; } */
+#back { display: none; background: url(images/backgroundTile.png); font-size: 12px; height: 100%; padding: 12px; }
+.dashboard #back {
+     border: 3px solid rgba(0, 0, 0, 0.3);
+     height: auto;
+     min-height: 360px;
+}
 #back h1 {
   font-family: Rockwell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -62,3 +83,4 @@ td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap;
 #back a { float: right;  }
 label { display: block; margin-top: 16px; }
 select { width: 200px; }
+button { display: block; margin-top: 16px; }

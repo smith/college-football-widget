@@ -1,5 +1,6 @@
 html, body { height: 100%; overflow: hidden; }
 
+
 body {
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -7,6 +8,7 @@ body {
   margin: 0;
 }
 
+body.dashboard { min-height: 360px; }
 a { color: white; text-decoration: none; }
 a:hover { border-bottom: 1px dotted; }
 
@@ -28,7 +30,7 @@ table { width: 100%; margin-top: 18px 0; font-size: 12px; }
 tr:last-child td { border-bottom: none; }
 td { width: 33%; border-bottom: 1px dotted; padding: 4px 0; white-space: nowrap; }
 
-#front { height: 100%; padding: 10px; overflow: auto;}
+#front { height: 100%; padding: 10px; background: black; }
 .dashboard #front { min-height: 360px; height: auto; }
 
 #front h1 {

@@ -1,3 +1,3 @@
-require(["./ui", "./widget"], function (ui) {
+require(["./ui"], function (ui) {
     ui.load();
 });

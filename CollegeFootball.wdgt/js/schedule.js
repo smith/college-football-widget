@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery"], function (require, exports, $) {
+define(["require", "exports", "jquery", "./date"], function (require, exports, $) {
     var cellMethods;
 
     function convertTZ(time) {
@@ -26,7 +26,7 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
 
     cellMethods = {
         date: function (cell, o) {
-            var d = new Date(cell.find("p").html());
+            var d = Date.parse(cell.find("p").html());
             o.date = [d.getMonth() + 1, d.getDate()].join("/");
         },
         opponent: function (cell, o) {

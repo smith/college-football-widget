@@ -6,14 +6,16 @@ define(function () {
             var toSide, w = window.widget;
             if (w) {
                 toSide = front.is(":visible") ? "ToBack" : "ToFront";
-                alert("hi");
                 w.prepareForTransition(toSide);
                 if (toSide === "ToFront") {
-                    front.toggle();
-                    back.toggle();
+                    front.height(back.height());
+                    back.hide();
+                    front.show();
                 } else {
-                    back.toggle();
-                    front.toggle();
+                    // Normalize height
+                    back.height(front.height());
+                    front.hide();
+                    back.show();
                 }
                 setTimeout(function () { w.performTransition(); }, 0);
             } else {

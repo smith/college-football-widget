@@ -80,7 +80,8 @@ function (require, exports, $, team, flip, pref, spinner) {
     exports.load = function () {
         // Default team and conference
         var t = pref.get("team") || 2294,
-            c = pref.get("conference") || "Big Ten";
+            c = pref.get("conference") || "Big Ten",
+            flipper = $(".flipper");
 
         spinner.toggle(front);
 
@@ -91,7 +92,12 @@ function (require, exports, $, team, flip, pref, spinner) {
         });
         conferencesSelect.live("change", conferenceChange);
         $("button").live("click", doneClick).live("click", save);
-        $(".flipper").live("click", doFlip);
+        flipper.live("click", doFlip);
+        flipper.find("a").live("click", doFlip);
         back.hide();
+
+        front.bind("mouseenter", function (event) { flipper.fadeIn(); });
+        front.bind("mouseleave", function (event) { flipper.fadeOut(); });
+
     };
 });

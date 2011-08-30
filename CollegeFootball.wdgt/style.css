@@ -92,10 +92,9 @@ button {
   margin-top: 16px;
   color: white;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
   font-size: 12px;
-  width: auto;
   line-height: 1;
-  height: auto;
   padding: 4px 10px 5px;
   margin: 16px;
   border: 1px solid rgba(0,0,0,0.1);

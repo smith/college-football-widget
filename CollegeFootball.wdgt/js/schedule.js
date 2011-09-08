@@ -35,12 +35,11 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
             o.opponent = (away ? "at " : "") + team;
         },
         resultTime: function (cell, o) {
-            var rt = o.resultTime = cell.find("p").text();
+            var rt = cell.text().trim();
             // If there's " ET " (eastern time)
             if (/\sET\s?/.test(rt)) {
-                // Remove everything after the "ET "
-                rt = rt.replace(/\sET\s?(.*)$/, "");
-                rt = convertTZ(rt);
+                // Remove everything after the "ET " and convert timezone
+                rt = convertTZ(rt.replace(/\sET\s?(.*)$/, ""));
             }
             o.resultTime = rt;
         },
@@ -54,7 +53,7 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
 
         s.toHtml = function () {
             var t = $("<table />"),
-                fields = ["date", "opponent", "resultTime"]; 
+                fields = ["date", "opponent", "resultTime"];
 
             s.games.each(function (i, game) {
                 var row = $("<tr />");

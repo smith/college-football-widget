@@ -36,7 +36,7 @@ define(function (require, exports) {
             localStorage.setItem(pref, value);
             break;
         case "widget":
-            w.setPreferenceForKey(pref, value);
+            w.setPreferenceForKey(value, pref);
             prefs[pref] = value;
             break;
         default:

@@ -5,7 +5,7 @@ define(["require", "exports", "jquery", "schedule", "jquery.xdomainajax"],
 
         team.getSchedule = function () {
             var d = $.Deferred();
-            $.get("http://espn.go.com/college-football/team/_/id/" + team.id,
+            $.get("http://espn.go.com/college-football/team/schedule/_/id/" + team.id,
                   function (data) {
                 var s = team.schedule = schedule.create(data.responseText);
                 d.resolve(s.toHtml());

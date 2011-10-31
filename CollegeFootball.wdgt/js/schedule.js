@@ -1,15 +1,10 @@
-define(["require", "exports", "jquery", "./date"], function (require, exports, $) {
+define(["require", "exports", "jquery", "./tz", "./date"], function (require, exports, $, tz) {
     var cellMethods;
-
-    function convertTZ(time) {
-        // TODO
-        return time;
-    }
 
     function row(i, r) {
         var cells = $(r).find("td"),
             o = {},
-            cols = ["date", "opponent", "resultTime", "recordTickets"]
+            cols = ["date", "opponent", "resultTime", "recordTickets"];
 
         cells.each(function (i, c) {
             cellMethods[cols[i]]($(c), o);
@@ -39,7 +34,7 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
             // If there's " ET " (eastern time)
             if (/\sET\s?/.test(rt)) {
                 // Remove everything after the "ET " and convert timezone
-                rt = convertTZ(rt.replace(/\sET\s?(.*)$/, ""));
+                rt = tz.convert(rt.replace(/\sET\s?(.*)$/, ""));
             }
             o.resultTime = rt;
         },

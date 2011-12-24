@@ -6,9 +6,13 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
             o = {},
             cols = ["date", "opponent", "resultTime", "recordTickets"];
 
-        cells.each(function (i, c) {
-            cellMethods[cols[i]]($(c), o);
-        });
+        // If there's only one cell, it means they're putting something like
+        // "INSIGHT BOWL" in there, so skip it
+        if (cells.length > 1) {
+            cells.each(function (i, c) {
+                cellMethods[cols[i]]($(c), o);
+            });
+        }
 
         return o;
     }

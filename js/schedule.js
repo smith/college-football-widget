@@ -25,7 +25,7 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
 
     cellMethods = {
         date: function (cell, o) {
-            var d = Date.parse(cell.find("p").html());
+            var d = Date.parse(cell.html());
             o.date = [d.getMonth() + 1, d.getDate()].join("/");
         },
         opponent: function (cell, o) {
@@ -47,7 +47,6 @@ define(["require", "exports", "jquery", "./date"], function (require, exports, $
 
     exports.create = function (html) {
         var s = {};
-
         s.games = process(html);
 
         s.toHtml = function () {

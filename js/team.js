@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery", "schedule", "jquery.xdomainajax"],
+define(["require", "exports", "jquery", "schedule"],
        function (require, exports, $, schedule) {
     exports.create = function (team) {
         team = team || {};
@@ -6,8 +6,8 @@ define(["require", "exports", "jquery", "schedule", "jquery.xdomainajax"],
         team.getSchedule = function () {
             var d = $.Deferred();
             $.get("http://espn.go.com/college-football/team/schedule/_/id/" + team.id,
-                  function (data) {
-                var s = team.schedule = schedule.create(data.responseText);
+                  function (html) {
+                var s = team.schedule = schedule.create(html);
                 d.resolve(s.toHtml());
             });
             return d;

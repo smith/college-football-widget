@@ -8,7 +8,6 @@ body {
 
 
 a { color: white; text-decoration: none; }
-a:hover { border-bottom: 1px dotted; }
 
 .dashboard #front, .dashboard #back {
      border-radius: 10px;
@@ -60,18 +59,6 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   font-weight: bold;
   font-family: "Baskerville", "Times New Roman",  serif;
   margin: auto;
-}
-
-.flipper:hover {
-  border-radius: 18px;
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-}
-
-.flipper a:hover {
-  border: none;
 }
 
 /* Back */

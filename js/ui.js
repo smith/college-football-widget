@@ -95,9 +95,5 @@ function (require, exports, $, team, flip, pref, spinner) {
         flipper.live("click", doFlip);
         flipper.find("a").live("click", doFlip);
         back.hide();
-
-        front.bind("mouseenter", function (event) { flipper.fadeIn(); });
-        front.bind("mouseleave", function (event) { flipper.fadeOut(); });
-
     };
 });

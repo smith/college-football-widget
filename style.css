@@ -75,7 +75,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 
 /* Back */
-#back { display: none; background: url(images/backgroundTile.png); font-size: 12px; padding: 12px; }
+#back { display: none; font-size: 12px; padding: 12px; }
 .dashboard #back {
      border: 3px solid rgba(0, 0, 0, 0.3);
 }

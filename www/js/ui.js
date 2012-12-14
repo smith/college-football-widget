@@ -40,7 +40,6 @@ function (require, exports, $, team, flip, pref, spinner) {
     }
 
     function doFlip(event) {
-        console.log('flip');
         spinner.toggle(front);
         return flip.perform(front, back, event);
     }

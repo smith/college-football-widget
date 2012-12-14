@@ -1,0 +1,106 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-attachment:fixed;
+
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  margin: 0;
+}
+
+a { color: white; text-decoration: none; }
+
+/* Front */
+img { width: 75px; height: 60px; }
+header { white-space: nowrap; }
+table { width: 100%; margin-top: 18px 0; font-size: 12px; }
+tr:last-child td { border-bottom: none; }
+td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowrap; }
+
+#front {
+  background: black;
+  padding: 10px;
+  position: relative;
+  height: 100%;
+}
+
+#front nav {
+  float: right;
+  font-size: 12px;
+  text-align: center;
+}
+
+#front nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#front nav ul li {
+  float: left;
+}
+
+#front nav ul li a {
+  display: block;
+  min-width: 44px;
+  min-height: 44px;
+  vertical-align: middle;
+}
+
+#flipper {
+  font-size: 200%;
+}
+
+#front h1 {
+  font-size: 175%;
+  position: relative;
+  left: 24px;
+  top: 24px;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/* Back */
+#back { display: none; font-size: 12px; padding: 12px; }
+.dashboard #back {
+     border: 3px solid rgba(0, 0, 0, 0.3);
+}
+#back h1 {
+  font-family: Rockwell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+#back a { float: right;  }
+label { display: block; margin-top: 16px; }
+select { width: 200px; }
+/* Thanks Marino! */
+button {
+  display: block;
+  margin-top: 16px;
+  color: white;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 10px 5px;
+  margin: 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.25);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,0.25),
+    inset 0 1px rgba(255,255,255,0.3),
+    inset 0 2px 0 rgba(255,255,255,0.10),
+    inset 0 7px 2px rgba(255,255,255,0.1),
+    inset 0 2px 5px rgba(255,255,255,0.25),
+    inset 0 0px 5px rgba(0,0,0,0.3);
+}

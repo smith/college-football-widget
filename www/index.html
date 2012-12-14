@@ -11,13 +11,7 @@
   </head>
   <body>
     <div id="front">
-      <nav>
-        <ul>
-          <li><a id="stats" href="">Stats</a></li>
-          <li><a id="news" href="">News</a></li>
-          <li><a id="flipper" href="#">⚙</a></li>
-        </ul>
-      </nav>
+      <a id="flipper" href="#">⚙</a>
       <header>
         <img id="logo" src="img/blank.png" />
         <h1></h1>
@@ -25,13 +19,16 @@
       <table cellpadding="0" cellspacing="0"></table>
     </div>
     <div id="back">
-      <h1>College Football</h1>
+      <header>
+        <h1>Select Team</h1>
+        <button>Done</button>
+      </header>
       <form>
+
         <label for="conferences">Conference</label>
         <select id="conferences"></select>
         <label for="teams">Team</label>
         <select id="teams"></select>
-        <button>Done</button>
       </form>
       <a target="_blank" href="http://nlsmith.com/projects/college-football">nlsmith.com</a>
     </div>

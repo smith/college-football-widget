@@ -1,5 +1,5 @@
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
 body {
@@ -10,84 +10,57 @@ body {
 
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
   margin: 0;
 }
 
 a { color: white; text-decoration: none; }
 
 /* Front */
-img { width: 75px; height: 60px; }
+img { width: 75px; height: 60px; position: absolute; left: 0; top: 0; }
 header { white-space: nowrap; }
-table { width: 100%; margin-top: 18px 0; font-size: 12px; }
+table { width: 100%; margin-top: 18px 0; }
 tr:last-child td { border-bottom: none; }
 td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowrap; }
 
 #front {
   background: black;
-  padding: 10px;
+  padding: 3px;
   position: relative;
   height: 100%;
 }
 
+#front header {
+  height: 63px;
+  position: relative;
+}
+
 #flipper {
+  position: absolute;
   display: block;
-  float: right;
-  font-size: 300%;
-  min-height: 44px;
-  min-width: 44px;
+  right: 0;
+  top: 0;
+  font-size: 100%;
+  height: 44px;
+  width: 44px;
+  line-height: 200%;
+  margin: auto 0;
   text-align: center;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
 }
 
-#flipper:active {
-  text-shadow: 0px 4px 4px #000000;
-}
-
 #front h1 {
-  font-size: 175%;
-  position: relative;
-  left: 24px;
-  top: 24px;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  vertical-align: top;
-  white-space: nowrap;
-}
-
-/* Back */
-#back { display: none; background-color: black; height: 100% }
-#back h1 { display: inline; font-size: 100%; }
-#back header {
-  position: relative;
-  margin: 0;
-  width: 100%;
+  font-size: 125%;
+  margin: 0px 49px 0px 80px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  z-index: 1;
+  display: -webkit-box;
+  -webkit-box-align: center;
   padding: 0;
-  height: 42px;
-  font-family: Helvetica;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 44px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#b0bccd), to(#6d84a2), color-stop(0.5, #889bb3), color-stop(0.5, #8195af));
-  border-top: 1px solid #cdd5df;
-  border-bottom: 1px solid #2d3642;
-  color: white;
-  text-shadow: rgba(0, 0, 0, 0.6) 0 -1px 0;
+  height: 63px;
+  font-weight: normal;
+  vertical-align: top;
 }
 
-button {
-  -webkit-appearance: none;
-  position: absolute;
-  display: inline-block;
-  margin: 6px;
-  height; 30px;
-  left: 0;
-  top: 0;
-}
+/* Back */
+#back { display: none; height: 100% }

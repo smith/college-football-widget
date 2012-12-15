@@ -1,5 +1,5 @@
-define(  ["require", "exports", "jquery", "./team", "./ui/flip", "./pref", "./ui/spinner"],
-function (require, exports, $, team, flip, pref, spinner) {
+define(  ["require", "exports", "jquery", "iscroll", "./team", "./ui/flip", "./pref", "./ui/spinner"],
+function (require, exports, $, iScroll, team, flip, pref, spinner) {
     var prefixes = {
             logo: "http://a2.espncdn.com/prod/assets/clubhouses/2010/ncaa/logos/",
             stats: "http://espn.go.com/college-football/team/stats/_/id/",
@@ -94,5 +94,8 @@ function (require, exports, $, team, flip, pref, spinner) {
         $("button").live("click", doneClick).live("click", save);
         flipper.live("click", doFlip);
         back.hide();
+
+        // Scrolling for content
+        new iScroll("scroll-wrap", { hScrollBar: false, hScroll: false });
     };
 });

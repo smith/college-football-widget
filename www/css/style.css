@@ -50,7 +50,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 
 #front h1 {
   font-size: 125%;
-  margin: 0px 49px 0px 80px;
+  margin: 0px 49px 0px 85px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -63,4 +63,101 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 
 /* Back */
-#back { display: none; height: 100% }
+#back { display: none; height: 100%; background: #aaaaaa; }
+/* Taken from https://gist.github.com/1521216 & http://www.colorzilla.com/gradient-editor/ */
+#back header {
+  position: relative;
+  height: 44px;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+  text-align: center;
+  line-height: 44px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: rgba(0,0,0,.5) 0 -1px;
+}
+#back h1 { font-size: 100%; }
+
+/* Also stolen (and adapted) from dojo */
+#back button {
+  position: absolute;
+  overflow: hidden;
+  top: 6px;
+  left: 6px;
+  -webkit-appearance: none;
+  -webkit-background-clip: padding-box;
+  -webkit-box-align: center;
+  background-clip: padding-box;
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+  height: 30px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#b0d0ec), color-stop(0.06, #73adde), to(#295584));
+  border-color: #2d4769;
+  border-top-color: #426c95;
+  text-shadow:0 1px 2px #183249;
+  color:white;
+  background-color: #b0d0ec;
+  text-align: center;
+}
+#back form {
+  margin: 0px 10px;
+  border: 2px solid #888888 inset;
+  border-radius: 7px;
+  color: black;
+  background: white;
+}
+
+#back fieldset {
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+}
+
+#back fieldset.last {
+  border-bottom: none;
+}
+
+#back fieldset label {
+  font-weight: bold;
+}
+
+/* Stolen from dojo */
+#back fieldset .arrow {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  font-size: 1px;
+  -webkit-transform: rotate(45deg);
+  border-width: 3px 3px 0px 0px;
+  border-style: solid;
+  border-color: #808080;
+}
+
+#back select {
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 100%;
+  color: #777777;
+  margin-left: 20px;
+}
+
+#back .about {
+  margin: 2em;
+  color: #555555;
+  /* from http://blog.robotforest.com/2009/08/10/emboss-text-with-css/ */
+  text-shadow: 0px 1px 0px #e1e1e8;
+}
+#back .about h1 { font-weight: normal; display: inline; }
+#back .about a { text-decoration: underline; text-shadow: none; }

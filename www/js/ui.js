@@ -96,6 +96,7 @@ function (require, exports, $, iScroll, team, flip, pref, spinner) {
         back.hide();
 
         // Scrolling for content
-        new iScroll("scroll-wrap", { hScrollBar: false, hScroll: false });
+        new iScroll("front-scroll-wrap", { hScrollBar: false, hScroll: false });
+        new iScroll("back-scroll-wrap", { hScrollBar: false, hScroll: false });
     };
 });

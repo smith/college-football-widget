@@ -97,6 +97,5 @@ function (require, exports, $, iScroll, team, flip, pref, spinner) {
 
         // Scrolling for content
         new iScroll("front-scroll-wrap", { hScrollBar: false, hScroll: false });
-        new iScroll("back-scroll-wrap", { hScrollBar: false, hScroll: false });
     };
 });

@@ -39,10 +39,9 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   display: block;
   right: 0;
   top: 0;
-  font-size: 100%;
+  font-size: 35px;
   height: 44px;
   width: 44px;
-  line-height: 200%;
   margin: auto 0;
   text-align: center;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
@@ -79,35 +78,29 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 #back h1 { font-size: 100%; }
 
-/* Also stolen (and adapted) from dojo */
 #back button {
-  position: absolute;
-  overflow: hidden;
-  top: 6px;
-  left: 6px;
-  -webkit-appearance: none;
-  -webkit-background-clip: padding-box;
-  -webkit-box-align: center;
-  background-clip: padding-box;
-  border-style: solid;
-  border-width: 1px;
-  color: black;
-  font-size: 12px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.5); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+  height: 32px;
+  color: white;
   font-weight: bold;
-  vertical-align: middle;
-  height: 30px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#b0d0ec), color-stop(0.06, #73adde), to(#295584));
-  border-color: #2d4769;
-  border-top-color: #426c95;
-  text-shadow:0 1px 2px #183249;
-  color:white;
-  background-color: #b0d0ec;
-  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  padding: 2px 10px;
+  background: -webkit-gradient(
+    linear, left top, left bottom, 
+    from(#737373),
+    color-stop(0.50, #3b3b3b),
+    color-stop(0.50, #242424),
+    to(#000000));
+  border-radius: 7px;
+  border: 1px solid #000000;
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,1),
+    0px 1px 0px rgba(255,255,255,0.2);
 }
+
 #back form {
   margin: 0px 10px;
   border: 2px solid #888888 inset;
@@ -118,6 +111,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 
 #back fieldset {
   border: none;
+  margin: 0;
   border-bottom: 1px solid #dddddd;
   position: relative;
 }
@@ -130,34 +124,22 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   font-weight: bold;
 }
 
-/* Stolen from dojo */
-#back fieldset .arrow {
-  position: absolute;
-  top: 14px;
-  right: 10px;
-  width: 6px;
-  height: 6px;
-  font-size: 1px;
-  -webkit-transform: rotate(45deg);
-  border-width: 3px 3px 0px 0px;
-  border-style: solid;
-  border-color: #808080;
-}
-
 #back select {
   -webkit-appearance: none;
   border: none;
   background: transparent;
   font-size: 100%;
   color: #777777;
-  margin-left: 20px;
+  float: right;
+  direction: rtl;
 }
 
 #back .about {
-  margin: 2em;
+  margin: 10px;;
   color: #555555;
   /* from http://blog.robotforest.com/2009/08/10/emboss-text-with-css/ */
   text-shadow: 0px 1px 0px #e1e1e8;
+  text-align: center;
 }
 #back .about h1 { font-weight: normal; display: inline; }
 #back .about a { text-decoration: underline; text-shadow: none; }

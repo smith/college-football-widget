@@ -1,9 +1,8 @@
 // Provides an abstraction for flipping over
 define(["jquery"], function ($) {
     return {
-        perform: function (front, back, event) {
-            front.toggle();
-            back.toggle();
+        perform: function (event) {
+            $('body').toggleClass('settings-visible');
             return false;
         }
     };

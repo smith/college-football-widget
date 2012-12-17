@@ -43,7 +43,7 @@ function (require, exports, $, scrolling, team, flip, pref, spinner) {
         conferencesSelect.blur();
         teamsSelect.blur();
         spinner.toggle(front);
-        return flip.perform(front, back, event);
+        return flip.perform(event);
     }
 
     function doneClick(event) {
@@ -101,7 +101,6 @@ function (require, exports, $, scrolling, team, flip, pref, spinner) {
         });
 
         spinner.toggle(front);
-        back.hide();
         // Scrolling for content
         scrolling.start();
     };

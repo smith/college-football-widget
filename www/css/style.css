@@ -44,7 +44,11 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   width: 44px;
   margin: auto 0;
   text-align: center;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+}
+
+#flipper.active {
+  text-shadow: 0px 0px 15px #fff;
+  background: -webkit-radial-gradient(center, circle cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 70%);
 }
 
 #front h1 {
@@ -62,12 +66,14 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 
 /* Back */
-#back { display: none; height: 100%; background: #aaaaaa; }
+#back { display: none; background: #aaaaaa; height: 100%; }
+/*#back-scroll-wrap { height: 100%; }*/
+#back-scroll-wrap div { margin: 10px; }
+
 /* Taken from https://gist.github.com/1521216 & http://www.colorzilla.com/gradient-editor/ */
 #back header {
   position: relative;
   height: 44px;
-  margin-bottom: 10px;
   background: -webkit-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
   text-align: center;
   line-height: 44px;
@@ -76,10 +82,10 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   font-weight: bold;
   text-shadow: rgba(0,0,0,.5) 0 -1px;
 }
-#back h1 { font-size: 100%; }
+
+#back h1 { font-size: 100%; margin: 0; }
 
 #back button {
-  -webkit-tap-highlight-color: rgba(0,0,0,0.5); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
   height: 32px;
   color: white;
   font-weight: bold;
@@ -89,7 +95,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   top: 6px;
   padding: 2px 10px;
   background: -webkit-gradient(
-    linear, left top, left bottom, 
+    linear, left top, left bottom,
     from(#737373),
     color-stop(0.50, #3b3b3b),
     color-stop(0.50, #242424),
@@ -101,8 +107,17 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
     0px 1px 0px rgba(255,255,255,0.2);
 }
 
+#back button.active {
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    from(#222222),
+    color-stop(0.50, #3b3b3b),
+    color-stop(0.50, #242424),
+    to(#000000));
+}
+
 #back form {
-  margin: 0px 10px;
+  margin: 0;
   border: 2px solid #888888 inset;
   border-radius: 7px;
   color: black;
@@ -113,7 +128,6 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
   border: none;
   margin: 0;
   border-bottom: 1px solid #dddddd;
-  position: relative;
 }
 
 #back fieldset.last {
@@ -135,7 +149,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 
 #back .about {
-  margin: 10px;;
+  margin: 10px 0;
   color: #555555;
   /* from http://blog.robotforest.com/2009/08/10/emboss-text-with-css/ */
   text-shadow: 0px 1px 0px #e1e1e8;

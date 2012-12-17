@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="front">
-      <header>
+      <header id="front-header">
         <a id="flipper" href="#">⚙</a>
         <img id="logo" src="img/blank.png" />
         <h1></h1>
@@ -21,30 +21,33 @@
       </div>
     </div>
     <div id="back">
-      <header>
+      <header id="back-header">
         <button>Done</button>
         <h1>Select Team</h1>
       </header>
       <div id="back-scroll-wrap">
-        <form>
-          <fieldset>
-            <label for="conferences">Conference</label>
-            <select id="conferences"></select>
-          </fieldset>
-          <fieldset class="last">
-            <label for="teams">Team</label>
-            <select id="teams"></select>
-          </fieldset>
-          </fieldset>
-        </form>
-        <section class="about">
-          <h1>College Football</h1>
-          <span>&copy;2012 <a target="_blank" href="http://nlsmith.com/projects/college-football">NL Smith</a></span>
-        </section>
+        <div>
+          <form>
+            <fieldset>
+              <label for="conferences">Conference</label>
+              <select id="conferences"></select>
+            </fieldset>
+            <fieldset class="last">
+              <label for="teams">Team</label>
+              <select id="teams"></select>
+            </fieldset>
+          </form>
+          <section class="about">
+            <h1>College Football</h1>
+            <span>&copy;2012 <a target="_blank" href="http://nlsmith.com/projects/college-football">NL Smith</a></span>
+          </section>
+        </div>
       </div>
     </div>
     <script>
-      require = { shim: { iscroll: { exports: "iScroll" } } }
+      require = { shim: { iscroll: { exports: "iScroll" },
+                          "jquery/noclickdelay": { deps: ["jquery"] }
+                }};
     </script>
     <script src="js/require.js" data-main="js/main"></script>
   </body>

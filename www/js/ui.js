@@ -1,5 +1,5 @@
-define(  ["require", "exports", "jquery", "iscroll", "./team", "./ui/flip", "./pref", "./ui/spinner"],
-function (require, exports, $, iScroll, team, flip, pref, spinner) {
+define(  ["require", "exports", "jquery", "./ui/scrolling", "./team", "./ui/flip", "./pref", "./ui/spinner", "jquery/noclickdelay"],
+function (require, exports, $, scrolling, team, flip, pref, spinner) {
     var prefixes = {
             logo: "http://a2.espncdn.com/prod/assets/clubhouses/2010/ncaa/logos/",
             stats: "http://espn.go.com/college-football/team/stats/_/id/",
@@ -40,6 +40,8 @@ function (require, exports, $, iScroll, team, flip, pref, spinner) {
     }
 
     function doFlip(event) {
+        conferencesSelect.blur();
+        teamsSelect.blur();
         spinner.toggle(front);
         return flip.perform(front, back, event);
     }
@@ -52,7 +54,6 @@ function (require, exports, $, iScroll, team, flip, pref, spinner) {
             doFlip();
         });
         return false;
-
     }
 
     // Save a preference
@@ -83,19 +84,25 @@ function (require, exports, $, iScroll, team, flip, pref, spinner) {
             c = pref.get("conference") || "Big Ten",
             flipper = $("#flipper");
 
-        spinner.toggle(front);
-
         $.when(data, loadConferences(c), loadTeams(c)).then(function (d) {
             conferencesSelect.val(c);
             teamsSelect.val(t);
             exports.setTeam(team.create(d[0][c][t]));
         });
-        conferencesSelect.live("change", conferenceChange);
-        $("button").live("click", doneClick).live("click", save);
-        flipper.live("click", doFlip);
-        back.hide();
+        conferencesSelect.on("change", conferenceChange);
+        $("button").on("click", doneClick).on("click", save);
+        flipper.on("click", doFlip);
+        // Add active class to touched buttons and links
+        $("a, button").on("touchstart", function () {
+            $(this).addClass("active");
+        });
+        $("a, button").on("touchend", function () {
+            $(this).removeClass("active");
+        });
 
+        spinner.toggle(front);
+        back.hide();
         // Scrolling for content
-        new iScroll("front-scroll-wrap", { hScrollBar: false, hScroll: false });
+        scrolling.start();
     };
 });

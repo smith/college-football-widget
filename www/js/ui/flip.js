@@ -1,5 +1,5 @@
 // Provides an abstraction for flipping over
-define(function () {
+define(["jquery"], function ($) {
     return {
         perform: function (front, back, event) {
             front.toggle();

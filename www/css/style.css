@@ -1,4 +1,8 @@
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
   -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
@@ -11,6 +15,7 @@ body {
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 a { color: white; text-decoration: none; }
@@ -22,11 +27,37 @@ table { width: 100%; margin-top: 18px 0; }
 tr:last-child td { border-bottom: none; }
 td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowrap; }
 
+#front,
+#back {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  width: 100%;
+}
+
 #front {
   background: black;
+  left: 0;
   padding: 3px;
-  position: relative;
   height: 100%;
+}
+
+#back {
+  left: 100%;
+}
+
+.settings-visible #front,
+.settings-visible #back {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 #front header {
@@ -66,7 +97,7 @@ td { width: 33%; border-bottom: 1px solid #666; padding: 4px; white-space: nowra
 }
 
 /* Back */
-#back { display: none; background: #aaaaaa; height: 100%; }
+#back { background: #aaaaaa; height: 100%; }
 /*#back-scroll-wrap { height: 100%; }*/
 #back-scroll-wrap div { margin: 10px; }
 

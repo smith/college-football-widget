@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>College Football</title>
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="front">
+      <header id="front-header">
+        <a id="flipper" href="#">⚙</a>
+        <img id="logo" src="img/blank.png" />
+        <h1></h1>
+      </header>
+      <div id="front-scroll-wrap">
+        <table cellpadding="0" cellspacing="0"></table>
+      </div>
+    </div>
+    <div id="back">
+      <header id="back-header">
+        <button>Done</button>
+        <h1>Select Team</h1>
+      </header>
+      <div id="back-scroll-wrap">
+        <div>
+          <form>
+            <fieldset>
+              <label for="conferences">Conference</label>
+              <select id="conferences"></select>
+            </fieldset>
+            <fieldset class="last">
+              <label for="teams">Team</label>
+              <select id="teams"></select>
+            </fieldset>
+          </form>
+          <section class="about">
+            <h1>College Football</h1>
+            <span>&copy;2012 <a target="_blank" href="http://nlsmith.com/projects/college-football">NL Smith</a></span>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script>
+      require = { shim: { iscroll: { exports: "iScroll" },
+                          "jquery/noclickdelay": { deps: ["jquery"] }
+                }};
+    </script>
+    <script src="js/require.js" data-main="js/main"></script>
+  </body>
+</html>

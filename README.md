@@ -1,3 +1,5 @@
+*THIS PROJECT IS DEPRECATED AND NO LONGER MAINTAINED. PLEASE CONTACT ME IF YOU WOULD LIKE TO BECOME ITS NEW OWNER*
+
 # College Football Widget
 
 College football is a [Dashboard Widget](http://www.apple.com/downloads/dashboard/) for [Mac OS X](http://www.apple.com/macosx/) which provides the current football schedule for I-A and I-AA NCAA teams.
